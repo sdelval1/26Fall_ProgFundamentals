@@ -1,3 +1,6 @@
+
+
+
 cafe_name = "Sammy's Cafe"
 tax_rate = 0.08
 
@@ -14,7 +17,10 @@ menu = {
 
 
 
-
+def show_menu(menu):
+        print("Here is Sammy's Cafe's menu:")
+        for product, price in menu.items():
+            print(f"{product}: ${price:.2f}")
 
 
 
@@ -28,5 +34,20 @@ def greet(name):
 name = input("What is your name? ")
 greet(name)
 
-def show_menu(menu):
-    print("")
+is_member = input("Are you a member? ")
+if is_member.lower() == "yes":
+    print("Thank you for being a member.")
+
+while True:
+    options = input("""Choose one of the following:  
+          1. View menu. 
+          2. Add an item. 
+          3. Remove an item. 
+          4. View my order. 
+          5. Checkout.""" 
+          )  
+    
+    if options == "1":
+         show_menu(menu)
+    elif options == "2":
+         
