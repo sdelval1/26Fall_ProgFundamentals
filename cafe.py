@@ -1,6 +1,4 @@
 
-
-
 cafe_name = "Sammy's Cafe"
 tax_rate = 0.08
 
