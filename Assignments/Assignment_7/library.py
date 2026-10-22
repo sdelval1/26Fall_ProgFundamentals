@@ -33,19 +33,32 @@ cur.executemany("INSERT INTO books VALUES (?, ?, ?, ?, ?, ?, ?)", books)
 
 print("Books published after 1990:")
 for row in cur.execute("SELECT TITLE, AUTHOR FROM books WHERE YEAR > 1990"):
-    print(row)
+    print(row[0])
 
 print("Fiction books with more than two copies: ")
 for row in cur.execute("SELECT TITLE FROM books WHERE GENRE = 'Fiction' AND COPIES > 2"):
-    print(row)
+    print(row[0])
 
 print("Books printed before 1900s or rated 5: ")
 for row in cur.execute("SELECT TITLE FROM books WHERE YEAR < 1900 OR RATING = 5"):
-    print(row)
+    print(row[0])
 
 print("Books not in the mystery genre: ")
 for row in cur.execute("SELECT TITLE FROM books WHERE NOT GENRE = 'mystery'"):
-    print(row)
+    print(row[0])
+
+print("Books that are in the Science or History genre: ")
+for row in cur.execute("SELECT TITLE FROM books WHERE GENRE IN ('History', 'Science')"):
+    print(row[0])
+
+letters = input("Choose a letter: ")
+print("Books with Authors who's names start with the letter: " + letters)
+for row in cur.execute("SELECT TITLE FROM books WHERE AUTHOR LIKE ?", (letters + "%",)):
+    print(row[0])
+
+print("Books with no rating: ")
+for row in cur.execute("SELECT TITLE FROM books WHERE RATING IS NULL"):
+    print(row[0])
 
 
 conn.commit()

@@ -13,6 +13,14 @@ print(babyFace.name)
 
 
 
+print("I am creating the 'Mike' Object:")
+Mike = Pet("Mike",2)
+print("The Object's age is:"Mike.name)
+print("The Object's age is:"Mike.age)
+
+
+
+
 
 
 #print(AnimalShelter.name)
