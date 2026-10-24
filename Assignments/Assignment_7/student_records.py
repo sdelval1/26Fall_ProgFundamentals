@@ -37,7 +37,7 @@ user_input = "no"
 
 while user_input == "no":
     user_input = input("Would you like to add a student? ")
-    if user_input == "yes":
+    if user_input.lower == "yes":
         print("")
     else:
         pass
