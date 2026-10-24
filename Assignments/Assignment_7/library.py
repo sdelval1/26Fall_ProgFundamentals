@@ -33,7 +33,7 @@ cur.executemany("INSERT INTO books VALUES (?, ?, ?, ?, ?, ?, ?)", books)
 
 print("Books published after 1990:")
 for row in cur.execute("SELECT TITLE, AUTHOR FROM books WHERE YEAR > 1990"):
-    print(row[0])
+    print(row)
 
 print("Fiction books with more than two copies: ")
 for row in cur.execute("SELECT TITLE FROM books WHERE GENRE = 'Fiction' AND COPIES > 2"):
